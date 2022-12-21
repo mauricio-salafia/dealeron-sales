@@ -10,3 +10,10 @@ Write an application that takes input for shopping baskets and returns receipts 
 all taxes and totals correctly. When calculating the sales tax, round the value up to the nearest 5 cents. For example, if 
 a taxable item costs $5.60, an exact 10% tax would be $0.56, and the final price after adding the rounded tax of $0.60 
 should be $6.20. 
+
+## Assumptions
+The input file is encoded with UTF-8
+The file structure is Quantity Description at Price
+The quantity will always one in the input file, later the products are grouped by the description, price, and tax price.
+The performance or the use of big files was not tested
+I focus in the structure and architecture of the project
