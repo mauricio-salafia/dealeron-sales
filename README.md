@@ -17,3 +17,11 @@ The file structure is Quantity Description at Price
 The quantity will always one in the input file, later the products are grouped by the description, price, and tax price.
 The performance or the use of big files was not tested
 I focus in the structure and architecture of the project
+
+## Testing
+Call to the api/billing endpoint to test the assessment.
+![image](https://user-images.githubusercontent.com/21999835/208796467-71a2d35b-c28a-45ca-b901-78e79173dba8.png)
+Some test files can be found in the example folder
+![image](https://user-images.githubusercontent.com/21999835/208796741-a164f048-dbb1-4775-9b02-15d9c47c7755.png)
+The response of the endpoint shows the path of the output file
+![image](https://user-images.githubusercontent.com/21999835/208796968-31d38aae-e251-4bfb-b868-d0223f221021.png)
