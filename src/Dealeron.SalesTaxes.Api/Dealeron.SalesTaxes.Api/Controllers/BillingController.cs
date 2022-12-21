@@ -46,7 +46,7 @@ namespace Dealeron.SalesTaxes.Api.Controllers
                 return StatusCode(StatusCodes.Status500InternalServerError, new { message = string.Join(".", response.Errors) });
             }
 
-            var path = Path.Combine(Environment.CurrentDirectory, "output", filename);
+            var path = Path.Combine(Environment.CurrentDirectory, "output" + filename);
             var dataBytes = System.Text.Encoding.UTF8.GetBytes(response.ObjectData?.ToString());
             using (var fileStream = new FileStream(path, FileMode.Create, FileAccess.Write))
             {
