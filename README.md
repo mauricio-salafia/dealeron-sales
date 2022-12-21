@@ -12,11 +12,14 @@ a taxable item costs $5.60, an exact 10% tax would be $0.56, and the final price
 should be $6.20. 
 
 ## Assumptions
-The input file is encoded with UTF-8
-The file structure is Quantity Description at Price
-The quantity will always one in the input file, later the products are grouped by the description, price, and tax price.
-The performance or the use of big files was not tested
-I focus in the structure and architecture of the project
+The input file is encoded using UTF-8.
+The file structure is Quantity Description at Price.
+The performance or the use of big files are out of the scope.
+
+## Comments
+I focused in the structure and architecture of the project.
+I tried to show the use Clean Architecture with CQRS.
+I used SQLite to show the use of EntityFramework Core and Migrations.
 
 ## Testing
 Call to the api/billing endpoint to test the assessment.
