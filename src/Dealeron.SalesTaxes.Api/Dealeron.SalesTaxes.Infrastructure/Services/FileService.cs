@@ -87,7 +87,18 @@ namespace Dealeron.SalesTaxes.Infrastructure.Services
             for (int index = 0; index < lines.Length; index++)
             {
                 var billingFileLine = CreateBillingFileLine(lines[index], index);
-                result.Add(billingFileLine);
+                for(int quantity = 0; quantity < billingFileLine.Quantity; quantity++)
+                {
+                    var billingFileLineSingle = new BillingFileLine
+                    {
+                        Quantity = 1,
+                        Categories = billingFileLine.Categories,
+                        Description = billingFileLine.Description,
+                        Price = billingFileLine.Price,
+                        TaxPrice = billingFileLine.TaxPrice,
+                    };
+                    result.Add(billingFileLineSingle);
+                }
             }
 
             return result;
@@ -119,6 +130,11 @@ namespace Dealeron.SalesTaxes.Infrastructure.Services
                 throw new InvalidDataException($"Invalid quantity value:{itemData} at line number: {lineNumber}.");
             }
 
+            if(result < 1)
+            {
+                throw new InvalidDataException($"Invalid quantity value:{itemData} at line number: {lineNumber}, must be positive.");
+            }
+
             return result;
         }
 
@@ -141,6 +157,11 @@ namespace Dealeron.SalesTaxes.Infrastructure.Services
             if (!decimal.TryParse(priceStr, out price))
             {
                 throw new InvalidDataException($"Invalid parse to price with value {priceStr} at line number {lineNumber}.");
+            }
+
+            if(price < 0)
+            {
+                throw new InvalidDataException($"Invalid parse to price with value {priceStr} at line number {lineNumber}, cannot be negative.");
             }
 
             var descriptionElemnts = dataLine.Skip(1).Take(index.Value - 1);
